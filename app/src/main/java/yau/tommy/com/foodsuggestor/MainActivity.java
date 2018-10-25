@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     //UI widgets
     ImageButton takePhotoBtn;
     ImageButton randomFoodBtn;
-
+    Button databaseBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public void initUI(){
          takePhotoBtn = findViewById(R.id.takePhotoBtn);
          randomFoodBtn = findViewById(R.id.randomFoodBtn);
+
+         databaseBtn = findViewById(R.id.databaseBtn);
 
          takePhotoBtn.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -44,5 +47,12 @@ public class MainActivity extends AppCompatActivity {
          });
 
 
+         databaseBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent i = new Intent(MainActivity.this, DatabaseActivity.class);
+                 MainActivity.this.startActivity(i);
+             }
+         });
     }
 }

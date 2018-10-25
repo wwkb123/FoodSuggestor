@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RandomFoodActivity"></activity>
+        <activity android:name=".RandomFoodActivity" />
+        <activity android:name=".DatabaseActivity"></activity>
     </application>
 
 </manifest>
