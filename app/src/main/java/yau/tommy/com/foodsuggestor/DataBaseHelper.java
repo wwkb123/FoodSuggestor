@@ -67,17 +67,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public boolean insertData(String name, String surname, String marks){
         db = this.getWritableDatabase();
 
-//        String id = "0";
-//        String query = "SELECT * FROM SQLITE_SEQUENCE";
-//        Cursor cursor = db.rawQuery(query, null);
-//        if (cursor.moveToFirst()){
-//            do{
-//                id = cursor.getString(cursor.getColumnIndex("seq"));
-//
-//            }while (cursor.moveToNext());
-//        }
-//
-//        cursor.close();
         id++;
         arrayList.add("ID: "+id+" "+ name+" "+ surname+" "+ marks+"\n");
 

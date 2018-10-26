@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton takePhotoBtn;
     ImageButton randomFoodBtn;
     Button databaseBtn;
+    Switch mySwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public void initUI(){
          takePhotoBtn = findViewById(R.id.takePhotoBtn);
          randomFoodBtn = findViewById(R.id.randomFoodBtn);
+         mySwitch = findViewById(R.id.switch1);
 
          databaseBtn = findViewById(R.id.databaseBtn);
 
@@ -52,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
              public void onClick(View view) {
                  Intent i = new Intent(MainActivity.this, DatabaseActivity.class);
                  MainActivity.this.startActivity(i);
+             }
+         });
+
+
+         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+             @Override
+             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                 Toast t = Toast.makeText(MainActivity.this,(b?"On":"Off"),Toast.LENGTH_SHORT);
+                 t.show();
              }
          });
     }
