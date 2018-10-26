@@ -36,13 +36,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         arrayList = new ArrayList<>();
         Cursor cursor = getAllData();
-        cursor.moveToFirst();
-        do{
-            id++;
-            arrayList.add("ID: "+cursor.getString(0)+" "+ cursor.getString(1)+" "+ cursor.getString(2)+" "+ cursor.getString(3)+"\n");
-        }while (cursor.moveToNext());
 
-        cursor.close();
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            do{
+                id++;
+                arrayList.add("ID: "+cursor.getString(0)+" "+ cursor.getString(1)+" "+ cursor.getString(2)+" "+ cursor.getString(3)+"\n");
+            }while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+
     }
 
     @Override
